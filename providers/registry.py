@@ -136,11 +136,18 @@ def _create_cerebras(config: ProviderConfig, _settings: Settings) -> BaseProvide
     return CerebrasProvider(config)
 
 
+def _create_freellmapi(config: ProviderConfig, _settings: Settings) -> BaseProvider:
+    from providers.freellmapi import FreeLLMAPIProvider
+
+    return FreeLLMAPIProvider(config)
+
+
 PROVIDER_FACTORIES: dict[str, ProviderFactory] = {
     "nvidia_nim": _create_nvidia_nim,
     "open_router": _create_open_router,
     "gemini": _create_gemini,
     "deepseek": _create_deepseek,
+    "freellmapi": _create_freellmapi,
     "mistral": _create_mistral,
     "mistral_codestral": _create_mistral_codestral,
     "opencode": _create_opencode,

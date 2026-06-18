@@ -36,6 +36,7 @@ ZAI_DEFAULT_BASE = "https://api.z.ai/api/anthropic/v1"
 GEMINI_DEFAULT_BASE = "https://generativelanguage.googleapis.com/v1beta/openai/"
 GROQ_DEFAULT_BASE = "https://api.groq.com/openai/v1"
 CEREBRAS_DEFAULT_BASE = "https://api.cerebras.ai/v1"
+FREELLMAPI_DEFAULT_BASE = "http://localhost:3001/v1"
 
 
 @dataclass(frozen=True, slots=True)
@@ -93,6 +94,16 @@ PROVIDER_CATALOG: dict[str, ProviderDescriptor] = {
         credential_attr="deepseek_api_key",
         default_base_url=DEEPSEEK_ANTHROPIC_DEFAULT_BASE,
         capabilities=("chat", "streaming", "tools", "thinking", "native_anthropic"),
+    ),
+    "freellmapi": ProviderDescriptor(
+        provider_id="freellmapi",
+        transport_type="openai_chat",
+        credential_env="FREELLMAPI_API_KEY",
+        credential_url="http://localhost:3001/keys",
+        credential_attr="freellmapi_api_key",
+        default_base_url=FREELLMAPI_DEFAULT_BASE,
+        proxy_attr="freellmapi_proxy",
+        capabilities=("chat", "streaming", "tools", "rate_limit"),
     ),
     "mistral": ProviderDescriptor(
         provider_id="mistral",

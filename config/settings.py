@@ -105,6 +105,9 @@ class Settings(BaseSettings):
     # ==================== Fireworks AI Config ====================
     fireworks_api_key: str = Field(default="", validation_alias="FIREWORKS_API_KEY")
 
+    # ==================== FreeLLMAPI Config ====================
+    freellmapi_api_key: str = Field(default="", validation_alias="FREELLMAPI_API_KEY")
+
     # ==================== Google Gemini (Google AI Studio) ====================
     gemini_api_key: str = Field(default="", validation_alias="GEMINI_API_KEY")
 
@@ -171,6 +174,7 @@ class Settings(BaseSettings):
     opencode_go_proxy: str = Field(default="", validation_alias="OPENCODE_GO_PROXY")
     zai_proxy: str = Field(default="", validation_alias="ZAI_PROXY")
     fireworks_proxy: str = Field(default="", validation_alias="FIREWORKS_PROXY")
+    freellmapi_proxy: str = Field(default="", validation_alias="FREELLMAPI_PROXY")
     gemini_proxy: str = Field(default="", validation_alias="GEMINI_PROXY")
     groq_proxy: str = Field(default="", validation_alias="GROQ_PROXY")
     cerebras_proxy: str = Field(default="", validation_alias="CEREBRAS_PROXY")
